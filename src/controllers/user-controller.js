@@ -9,3 +9,22 @@ export async function getAllUser(req,res){
         res.status(400).json({error : err})
     }
 }
+
+export async function createUser(req,res){
+    try{
+    const body=req.body
+    console.log(body)
+    await UserModel.create({
+        userName:body.userName,
+        number:body.number,
+        email:body.email,
+        password:body.password
+    })
+    const users = await UserModel.find()
+
+    res.status(200).json({user: users})
+    }catch(err){
+        res.status(400).json({message : err})
+    }
+
+}
