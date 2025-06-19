@@ -13,5 +13,6 @@ const connectDb = async () => {
 connectDb();
 
 app.listen(8000, () => {
+  console.log("http://localhost:8000/");
     console.log("http://localhost:8000/");
 });
