@@ -14,11 +14,12 @@ export async function createUser(req,res){
     try{
     const body=req.body
     console.log(body)
+    const hashedPassword = await bcrypt.hash(body.password || "" , 10)
     await UserModel.create({
         userName:body.userName,
         number:body.number,
         email:body.email,
-        password:body.password
+        password:hashedPassword
     })
     const users = await UserModel.find()
 
