@@ -7,8 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use(userRouter);
-
+app.use("/", userRouter);
 const connectDb = async () => {
   try {
     await mongoose.connect(
@@ -21,6 +20,6 @@ const connectDb = async () => {
 };
 connectDb();
 
-app.listen(8000, () => {
+app.listen(7000, () => {
   console.log("http://localhost:8000/");
 });
