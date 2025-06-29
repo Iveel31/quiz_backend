@@ -1,13 +1,12 @@
 import mongoose from "mongoose";
 const quizSchema = new mongoose.Schema({
-    answers:{
-        a:String,
-        b:String,
-        c:String,
-        d:String
-    },
+    answers:[
+        {
+            ans:String,
+            isCor:Boolean
+        }
+    ],
     question:String,
-    correctAns:String,
     category:String
 })
 export const QuizModel = mongoose.model("quiz",quizSchema)

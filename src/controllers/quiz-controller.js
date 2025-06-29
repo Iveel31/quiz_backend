@@ -15,7 +15,6 @@ export async function createQuiz(req,res){
     await QuizModel.create({
     answers:body.answers,
     question:body.question,
-    correctAns:body.correctAns,
     category:body.category
     })
     const quiz = await QuizModel.find()
